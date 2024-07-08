@@ -114,6 +114,9 @@ $date = new DateTime('now');
 $date->modify('-1 month');
 ```
 
+#### [ask]クラスはプロパティとメソッドで構成されていると思いますが、DateTimeオブジェクトの日時という情報はどこに格納されていますか？
+- 日時を取得できるDateTimeクラスのプロパティに格納されています。
+
 ## `DateTime::format`メソッドと`DateInterval::format`メソッドの違いを教えてください。
 - DateTime::formatメソッドは、日時を指定されたフォーマットで文字列として出力するために使用されますが、DateInterval::formatは日時の間隔を指定されたフォーマットで文字列として出力される違いがあります。
 
