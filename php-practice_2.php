@@ -12,6 +12,14 @@ for ($i = 1; $i <= 100; $i++) {
   }
 }
 
+/* [ask]
+20という数値はどこから出てきましたか？
+*/
+
+/* 解答
+4の倍数かつ5の倍数の最小公倍数は20なので、20を使用しました。
+*/
+
 // Q2 多次元連想配列
 $personalInfos = [
   [
@@ -46,6 +54,18 @@ foreach ($personalInfos as $user) {
   $index++;
 }
 
+/*
+別解法を考えたれていてとても良いですね！
+ちなみにパターン①と②どちらの方がいいと感じていますか？
+*/
+
+/* 解答
+パターン②の方がいいかと思います。
+理由としては、外で変数を定義した方がループ内でのカウンター管理が明確化すると思うからです。
+また、$keyを加算するより、変数を使った方がコードの意図が分かりやすく可読性も高いと考えます。
+*/
+
+
 // 問題3
 $ageList = [25, 30, 18];
 foreach ($ageList as $key => $value) {
@@ -53,9 +73,47 @@ foreach ($ageList as $key => $value) {
 }
 var_dump($personalInfos);
 
+/* [ask]
+$kyeや$valueからなんの値が代入されているか想像することできますか？
+*/
+
+/* 解答
+想像できません。
+上記の場合、ageつまり年齢に関係する名前を設定する方が適切だと思います。
+$key→$age
+$value→personalAge
+*/
+
 // Q3 オブジェクト-1
+class Student
+{
+  public $studentId;
+  public $studentName;
+
+  public function __construct($id, $name)
+  {
+    $this->studentId = $id;
+    $this->studentName = $name;
+  }
+
+  public function attend()
+  {
+    echo '授業に出席しました。';
+  }
+}
+
 $arai = new Student(123, '荒井');
 echo '学籍番号' . $arai->studentId . '番の生徒は' . $arai->studentName . 'です。';
+
+/* [ask]
+class Studentが定義される前に実行した場合どうなると思いますか？
+*/
+
+/* 解答
+class Studentが定義されていなければ、そもそもインスタンス化するclassがないため、エラーになると思います。
+すみません。質問の意図としましては問題文の記載がないため、記載した方がいいということでしょうか…？
+こちらの記載がないのは単なる記載漏れのため、念のため修正として問題も追加で記載いたしました。
+*/
 
 // Q4 オブジェクト-2
 class Student
@@ -91,5 +149,14 @@ $nowTime = new DateTime('now');
 
 $diff = $oldTime->diff($nowTime);
 echo $diff->format('あの日から%a日経過しました。');
+
+/* [ask]
+1行で書き直すことできますか？
+*/
+
+/* 解答
+できます。以下に1行で書き直したものを記載いたします。
+echo $oldTime->diff($nowTime)->format('あの日から%a日経過しました。');
+*/
 
 ?>
