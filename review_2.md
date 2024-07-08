@@ -39,7 +39,8 @@ for ($i = 0; $i <= 4; $i++) {
 
 ### [ask]メソッドはfunctionの前に何か文字が表示されていると思いますが、何が表示されていますか？
 - 「public」「private」「protected」といったアクセス修飾子です。  
-アクセス修飾子は、そのメソッドにどこからアクセスできるか指定するもので、上記3つのいずれかを指定します。
+アクセス修飾子は、そのメソッドにどこからアクセスできるか指定するもので、上記3つのいずれかを指定します。  
+<!-- - クラスのプロパティはprivateがいい。なるべく、publicは使わないように。どこからでもアクセスできるのは、書き換えのリスクがあります。 -->
 ```
 public：どこからでもアクセス可能。アクセス修飾子がない場合は、publicを指定したものと同じになります。
 private：同じクラス内からのみアクセス可能です。
@@ -128,9 +129,9 @@ echo $prev->diff($now)->format('%a')
 ```
 
 1. PHP公式サイト([php.net](https://www.php.net/manual/ja/index.php))にアクセスします。  
-1. 検索ボックスに「DateTime::format」と入力して検索します。  
-1. 検索結果から「DateTime::format」メソッドのページを選択します。  
-1. ページ内で返り値の説明を確認します。
+1. $prevにDateTimeクラスをインスタンス化したDateTimeオブジェクトが格納されているため、「DateTime::diff」と検索ボックスに入力して検索します。  
+1. 「DateTime::diff」の戻り値に「ふたつの日付の差をあらわすDateIntervalオブジェクトを返します。」と記載があるため、「DateIntervalクラス」にアクセスします。  
+1. 「DateIntervalクラス」ページのクラス概要に、「public format(string $format): string」とformatの記載があるので、「DateInterval::format」にアクセスをして、戻り値を確認します。
 
 ### [ask]なぜ、DateTimeのformatメソッドを調べようと思いましたか？
 - 今回がDateTimeオブジェクトの日付に対してformatを指定していると考えたため、「DateTime format 返り値」で検索した後にPHPマニュアルの「DateTimeInterface::format」メソッドページを見つけ、同一行に「DateTime::format」がありましたので、「DateTime::format」で調べればいいのかと思いました。
